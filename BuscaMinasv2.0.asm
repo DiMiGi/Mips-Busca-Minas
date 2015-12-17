@@ -15,6 +15,10 @@ display: .word 0:262144
 
 tablero: .word 0:3888
 
+buffer: .byte 256
+archivo: .asciiz "lectura.txt"
+msg_error: .asciiz "Error :("
+
 # Imagenes del tablero
  botonDesactivado: .word 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xc0c0c0, 0x01000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xc0c0c0, 0x707070, 0x01000000, 0xffffff, 0xffffff, 0xb0b0b0, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xb8b8b8, 0xc0c0c0, 0x707070, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xb8b8b8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc8c8c8, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xffffff, 0xc0c0c0, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xd0d0d0, 0x787878, 0x808080, 0x01000000, 0xffffff, 0xc0c0c0, 0x707070, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x808080, 0x808080, 0x01000000, 0xc0c0c0, 0x707070, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x808080, 0x01000000, 0x01000000
     botonActivado: .word 0x808080, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x787878, 0x01000000, 0x787878, 0xd0d0d0, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0xc8c8c8, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x787878, 0xc8c8c8, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0xc0c0c0, 0x01000000, 0x01000000
@@ -38,10 +42,12 @@ tablero: .word 0:3888
 #li $a2,16
 #jal MOSTRAR_COLUMNA         # se crea el tablero la imagen
 
-li $a0,16
-li $a1,5
-jal CARGAR_TABLERO
+#li $a0,16
+#li $a1,10
+#CREAR_TABLERO_ALEATORIO
 
+
+jal LEER_ARCHIVOS
 
 j FIN_FUNCIONES
 
@@ -163,7 +169,6 @@ jr $ra
 # CARGA EL TABLERO Y LO INICIALIZA, Y MIENTRAS HACE ESTO AGREGA BOMBAS ALEATORIAMENTE
 
 # $a0 DIMENSION DEL TABLERO
-# $a1 CANTIDAD DE BOMBAS
 
 CARGAR_TABLERO:
 	li $t0,0	# CONTADOR DE POSICION X
@@ -172,7 +177,6 @@ CARGAR_TABLERO:
 	la $t3,tablero	# SE CARGA EL TABLERO
 	
 	move $s0,$a0
-	move $s1,$a1
 	
 	WHILE_CARGAR_TABLERO: # MIENTRAS EL CONTADOR NO SEA IGUAL AL TAMAÑO DEL TABLERO
 		beq $t0,0,SUMA_WHILE_CARGAR_TABLERO	# POSICION X SI ES 0 O N+1, LAS POSICIONES X E Y
@@ -197,41 +201,64 @@ CARGAR_TABLERO:
 	li $t1,0	# SE REINICIA LA POSICION Y
 	addi $t4,$t5,1	# SE SUMA UNO PARA LA VALIDACION DE N+2
 	bne $t0,$t4,WHILE_CARGAR_TABLERO
-	
-	
-	# AGREGAR UNA BOMBA
+FIN_CARGAR_TABLERO:
+jr $ra
+
+#====================================================================================#
+
+
+#CREAR TABLERO ALEATORIO
+#A0 DIMENSION TABLERO
+#A1 CANTIDAD BOMBAS
+
+
+CREAR_TABLERO_ALEATORIO:
+	jal CARGAR_TABLERO
+	move $a0,$a1
+	jal AGREGAR_BOMBA_TABLERO
+jr $ra
+
+
+
+#=======================================================================================#
+
+
+# AGREGAR UNA BOMBA
 	# LAS BOMBAS ESTAN REPRESENTADAS POR LA CANTIDAD DE BOMBAS 9
-	
-	
+
+# A1 CANTIDAD DE BOMBAS
+# A0 DIMENSION TABLERO
+
+AGREGAR_BOMBA_TABLERO:
 	# SE INICIAN EN 1,1 PORQUE LAS DEMAS POSICIONES SE UTILIZAN PARA QUE NO SE CAIGA EL PROGRAMA O NO SE HAGA
 	# UNA SUMA DONDE NO CORRESPONDA AL HACER LA ASIGNACION DE BOMBAS
-	
-	addi $sp,$sp,-4
+	li $s0,0
+	addi $sp,$sp,-12
 	sw $ra,0($sp)
+	sw $a1,4($sp)	# SE GUARDA LA CANTIDAD DE BOMBAS
+	sw $a0,8($sp)	# SE GUARDA LA DIMENSION DEL TABLERO
 	addi $s0,$s0,1
-	li $t7,0
+	li $t7,0 #contador
 	# EN LA FUNCION RANDOM NO SE UTILIZA T0 TENER CUIDADO DE NO PERDER T0 QUE CONTIENE LA DIMENSION DEL TABLERO
 	WHILE_CAMBIAR_POSICION_BOMBA:
-		beq $t7,$s1,FIN_CARGAR_TABLERO
-		
+		lw $t6,4($sp)	# CALCULO EL TOPE DE BOMBAS
+		beq $t7,$t6,FIN_AGREGAR_BOMBA_TABLERO
+		lw $t6,8($sp)	# CALCULO EL TOPE DEL TABLERO
 		# SE CALCULA UN RANDOM PARA POSICION X
 		li $a0,1
-		move $a1,$s0
+		move $a1,$t6
 		jal RANDOM_3	# LLAMAR FUNCION RANDOM LIMITE INFERIOR 1 Y LIMITE SUPERIOR (NUMERO RANDOM ENTRE 1 Y LIMITE SUPERIOR)
 		addi $sp,$sp,-4
 		sw $v0,0($sp)	# SE GUARDA LA POSICION X DEL RANDOM POSICION REAL DE $RA ES 4
 		
 		# SE CALCULA UN RANDOM PARA POSICION Y
 		li $a0,1
-		move $a1,$s0
+		move $a1,$t6
 		jal RANDOM_3	# LLAMAR FUNCION RANDOM LIMITE INFERIOR 1 Y LIMITE SUPERIOR (NUMERO RANDOM ENTRE 1 Y LIMITE SUPERIOR)
-		addi $sp,$sp,-4
-		sw $v0,0($sp)	# SE GUARDA LA POSICION Y DEL RNDOM POSICION REAL DE POSICION X ES 4 $RA ES 8
-		# YA NO IMPORTA T0
-		
-		lw $a0,4($sp)	# POSICION X
-		lw $a1,0($sp)	# POSICION Y
-		addi $sp,$sp,8
+				
+		lw $a0,0($sp)	# POSICION X
+		move $a1,$v0	# POSICION Y
+		addi $sp,$sp,4
 		li $a2,9	# NUMERO REPRESENTATIVO PARA LA BOMBA
 		jal CAMBIAR_POSICION_BOMBA
 		beq $v0,1,CAMBIO_BOMBA_EXITOSO
@@ -241,11 +268,10 @@ CARGAR_TABLERO:
 			addi $t7,$t7,1
 		CAMBIO_BOMBA_EXITOSO_AUX:
 	j WHILE_CAMBIAR_POSICION_BOMBA
-FIN_CARGAR_TABLERO:
+FIN_AGREGAR_BOMBA_TABLERO:
 lw $ra,0($sp)
 addi $sp,$sp,4
 jr $ra
-
 #=======================================================================================#
 
 # SE CAMBIA EN LAS POSICIONES DADAS POR EL NUMERO DADO
@@ -254,7 +280,7 @@ jr $ra
 
 # $A0 POSICION X
 # $A1 POSICION Y
-# $A2 NUMERO DE BOMBAS
+# $A2 NUMERO DE BOMBA
 # $v0 RETORNO 0 Ó 1
 
 CAMBIAR_POSICION_BOMBA:
@@ -310,5 +336,95 @@ RANDOM_VALIDEZ:
 	move $v0,$a0
 FIN_RANDOM_VALIDEZ:
 	jr $ra
+#========================================================================================#
+
+# LECTURA DE ARCHIVOS
+
+#$a0 = address of null-terminated string containing filename 	#
+#$a1 = flags							# NO SE UTILIZAN
+#$a2 = mode							#
+
+LEER_ARCHIVOS:
+
+li $t0,0 # CONTADOR DE COLUMNAS
+
+# CALCULAR DIMENSIONES
+la $a0, archivo
+addi $a1, $zero, 0 	# 0 => read, 1 => write-create, 9 => write-append-create
+addi $a2, $zero, 0      # Siempre es ignorado por mars
+li $v0, 13		# Syscall 13 lee de un archivo
+syscall
+move $a0, $v0
+la $a1, buffer
+li $a2, 100		# 99 ya que hay que incluir el terminador en null
+li $v0, 14		# syscall 14 lee de un archivo
+syscall
+
+la $t1,buffer
+
+WHILE_CONTADOR_DIMENSION_TABLERO:
+lb $t2,0($t1)
+beq $t2, 13, FIN_CONTADOR_DIMENSION_TABLERO	# CAMBIAR A 10 EN LINUX
+addi $t1,$t1,1
+addi $t0,$t0,1
+j WHILE_CONTADOR_DIMENSION_TABLERO
+FIN_CONTADOR_DIMENSION_TABLERO:
+
+# FIN DEL CALCULO DE DIMENSION (revisado) guardado en t0
+
+move $a0,$t0	# SE ASIGNA LA DIMENSION DEL TABLERO PARA GENERAR EL TABLERO
+addi $sp,$sp,-4
+sw $ra,0($sp)
+jal CARGAR_TABLERO
+lw $ra,0($sp)
+addi $sp,$sp,4
+
+la $a0, archivo
+li $a1, 0 		# 0 => read, 1 => write-create, 9 => write-append-create
+li $a2, 0     		# Siempre es ignorado por mars
+li $v0, 13		# Syscall 13 lee de un archivo
+syscall
+move $s0, $v0
+li $s0,1		# SE ASIGNA EL CONTADOR DE FILAS EN 1
+li $s1,0		# SE ASIGNA EL CONTADOR DE COLUMNAS EN 0
+
+move $a0, $s0		# SE ALMACENA EL ARCHIVO EN A0
+la $a1, buffer		# SE CARGA EL BUFFER, EL CARACTER LEIDO
+li $a2, 99		# 99 ya que hay que incluir el terminador en null
+li $v0, 14		# syscall 14 lee de un archivo
+syscall
+la $t1,buffer
+
+WHILE_LEER_ARCHIVOS:
+	addi $s1,$s1,1		# AUMENTA EN UNO LA COLUMNA (y)
+	lb $t0,0($t1)		# SE CARGA EL BUFFER
+	addi $t1,$t1,1		# PASE A LA SIGUEIENTE POSICION
+	beq $t0,88,AGREGAR_BOMBA_LEER_ARCHIVO 	# SI EL BUFFER ES X O x AGREGA BOMBA SI NO AUMENTA LA COLUMNA 
+	beq $t0,120,AGREGAR_BOMBA_LEER_ARCHIVO	# A LA SIGUIENTE ENTRADA AL WHILE
+	beq $t0,13,SALTO_LINEA 	# CAMBIAR A 10 EN LINUX
+	j AGREGAR_BOMBA_LEER_ARCHIVO_AUX
+		SALTO_LINEA:
+		addi $s0,$s0,1		# SE AUMENTA EN UNO LA FILA
+		li $s1,0		# SE REINICIA CONTADOR DE COLUMNAS	
+		j AGREGAR_BOMBA_LEER_ARCHIVO_AUX
+			AGREGAR_BOMBA_LEER_ARCHIVO:
+			move $a0,$s0	# SE CARGA LA POSICION X
+			move $a1,$s1	# SE CARGA LA POSICION Y
+			li $a2,9	# SE ASIGNA EL CONTADOR BOMBA EN NUEVE QUE REPRESENTA LA BOMBA
+			addi $sp,$sp,-4
+			sw $ra,0($sp)
+			jal CAMBIAR_POSICION_BOMBA	# SE LLAMA A LA FUNCION QUE AGREGA BOMBA
+			lw $ra,0($sp)
+			addi $sp,$sp,4
+	AGREGAR_BOMBA_LEER_ARCHIVO_AUX:
+	
+	beq $s0,$s1,FIN_LEER_ARCHIVOS
+	
+	j WHILE_LEER_ARCHIVOS
+FIN_LEER_ARCHIVOS:
+jr $ra
 
 FIN_FUNCIONES:
+
+
+
